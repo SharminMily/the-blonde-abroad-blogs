@@ -1,9 +1,1 @@
-
-
-
-
-export const AdminSearchableFields = [
-    'email',
-    'id',
-    'name',
-  ];
+export const AdminSearchableFields = ['email', 'id', 'name'];

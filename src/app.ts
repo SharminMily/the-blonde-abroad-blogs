@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-unused-vars */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import express, { Application, Request, Response } from 'express';
@@ -17,26 +16,23 @@ const app: Application = express();
 app.use(express.json());
 app.use(cors());
 
-
-app.use('/api/user', userRouter)
-app.use('/api/blogs', BlogRouter)
-app.use('/api/auth', authRouter)
-app.use('/api/admin', AdminRoutes)
-
-
+app.use('/api/user', userRouter);
+app.use('/api/blogs', BlogRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/admin', AdminRoutes);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World! ⚡');
 });
 
 // console.log(process.cwd());
-app.use(globalErrorHandler)
+app.use(globalErrorHandler);
 
-app.use("*", (req: Request, res: Response) => {
+app.use('*', (req: Request, res: Response) => {
   res.status(404).json({
     status: false,
-    message: 'Route not found'
-  })
-})
+    message: 'Route not found',
+  });
+});
 
 export default app;
